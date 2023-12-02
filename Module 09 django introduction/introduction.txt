@@ -1,0 +1,22 @@
+software dev ---2 types
+1. web dev
+2. app dev
+
+works==> request to response
+
+request 4 types ==> 1. get request 2. post request 3. update request 4. delete request
+
+with tese 4 operation when we build a software it is called CRUD project.
+
+CRUD ==>> create retrive (get) update delete
+
+request comes from front end response comes from back end.
+
+
+jokhon amra web frame banai tokhon views.py banay nite hoy r urls.py banai thake abr
+jokhon app frame banai tokhon views.py banai thake urls.py banay nite hoy
+
+
+jokhon app banbo tokhon project or web frame er settings.py a bole dite hoy j amra akta web frame banaitesi 
+
+
