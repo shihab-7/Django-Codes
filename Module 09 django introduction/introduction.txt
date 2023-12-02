@@ -17,6 +17,6 @@ jokhon amra web frame banai tokhon views.py banay nite hoy r urls.py banai thake
 jokhon app frame banai tokhon views.py banai thake urls.py banay nite hoy
 
 
-jokhon app banbo tokhon project or web frame er settings.py a bole dite hoy j amra akta web frame banaitesi 
+jokhon app banbo tokhon project or web frame er settings.py er installed app a bole dite hoy j amra akta app frame banaitesi 
 
 
