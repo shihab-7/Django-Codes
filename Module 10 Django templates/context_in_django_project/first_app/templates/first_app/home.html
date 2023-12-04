@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is home page</h1>
+    <h1>{{lst}}</h1> 
+    <h1>{{author}}</h1> 
+
+{% comment %} html code er vitor django er template language python diye likhte {% python code %} use korte hoy{% endcomment %}
+
+    {% if age >= 20 %}
+    <h4>You'll get a licence</h4>
+    {% elif age >= 10 and age <= 19 %}
+    <h4>You'll not get a licence</h4>
+    {% else %}
+    <h4>You're a child</h4>
+    {% endif %}
+    <!-- django k janay dite hoy end diye j template language sesh-->
+    
+    <!-- django te for loop-->
+
+    {% for i in courses %}
+    <h4>{{i.id}} {{i.name}} {{i.fees}}</h4>
+    {% endfor %}
+
+    <!--ei sompurno jinish ta k bola hoy filtering kora backend theke frontend a-->
+
+    <!--earthly.dev website a visit korle onek filter paowa jabe backend er data modify korar jonno-->
+    <h1>{{ birthday | date:"D d M Y" }}</h1>
+
+    <!--join filter-->
+    <h1>{{ lst | join:" + " }}</h1>
+
+    <!--eirokom onek filter paowa jay-->
+
+    <!--truncatechar diye total koyta char dekhabo oita kora jay -->
+    <h1>{{ 'happy coding , programming is fun' | truncatechars:12 }}</h1>
+
+</body>
+</html>

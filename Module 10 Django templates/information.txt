@@ -1,0 +1,27 @@
+DTL ==> Django Template Language
+
+views.py theke jokhon data front end part a pathano hoy tokhon dtl onek facilities provide kore 
+
+MVT ==> Model View Template
+
+cmd te ===>
+django-admin startproject project_name
+cd project_name diye oi partculer directory set kora hoise
+akhon root directory er sathe akta app create korte
+django-admin startapp app_name
+akhon project er inner project directory te thaka settings.py a jaya create kora app ta installed app section a add kore dite hobe
+sathe app directory te urls.py r project directory te views.py banay nite hobe
+
+app directory er urls.py ta project er urls.py er vitor include kore dite hobe plus urlspattern a path set kore dite hobe
+
+akhon views.py a function likhlei oita urls.py exicute kora shuru kore dibe
+
+
+html er sompurno design soho code ta kei django te template bole.
+
+ei html file k e render kore response pathate hoy
+agey views a jekhane httpresponse return kortesilam akhon oikhanei render korte hobe
+
+
+templates folder ta create korar por settings.py a templates er dirs[] er vitor add kore dite hobe
+
