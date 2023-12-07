@@ -25,3 +25,15 @@ agey views a jekhane httpresponse return kortesilam akhon oikhanei render korte 
 
 templates folder ta create korar por settings.py a templates er dirs[] er vitor add kore dite hobe
 
+app er vitor a template folder banale or vitor r akta folder banay or vitor e html file likhte hoy 
+r app er vitor templates banale oita settings.py a bole dite hoy na auto ditect kore ney just render korar somoy vitorer folder soho path ta bole dite hoy.
+
+
+html a hyperlink korar somoy source path er  agey / and sesh a / na dile bar bar new link generate hoye error dibe,
+r jodi kono link na thake tahoile ontoto akta / ditei hobe.
+
+
+django te app niye kaj kora beshi shubidha kono extra kisu kora lage na .
+
+context ====>> django te views.py er function gulote html file render kore return korar sathe sathe amra backend theke dictionary akare 
+onno data o patahte pari jeta html code er vitor {{dictionary key}} diye access kore show kora jay .

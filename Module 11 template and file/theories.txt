@@ -1,0 +1,48 @@
+in django static files ==>> css,js,media and others
+
+fixed files are static file and changable files are dynamic file , in django dynamic files are called media files
+
+project file theke static folder er file access korte =====>>>
+
+django te direct raw html code er moddhe global static folder er kono file hyperlink kora jay na . onno vabe settings.py er maddhome handle korte hoy
+
+STATIC_URL = 'static/' er niche akta static directory list banay nite hobe
+
+STATICFILES_DIRS = [ BASE_DIR/'static', ]
+
+erpor html code a {% load static %} diye static folder load korbo r img er src te folder location na diye {% static 'file name' %} diye access korbo
+
+app theke static folder er file access korte =====>>>
+
+django app k specially treat koray extra kisu kora lage na . same as project er moto html code a load kore nilei hoy
+ei static folder er modhhei alada alada kore js,css,images folder banay pore html a path load kore static data show kora hoy
+
+context data hishebe kono list pass korle oitake render er vitor dictionary banay tarpor pathaite hoy
+jemon---->
+
+data = [{},{}]
+
+return render(request , 'html file' , {'data key' : data value} ) eivabe key value pair banay pathaite hoy.
+
+
+URL TAGGING =====>>>>
+
+views.py theke render korar por urls.py a path set korar somoy path('link/', name='exact page link') eivabe dile link auto dynamic hoye jay bar bar nije set kore deowa lage na 
+pore html code er hyper link href a jaya {% url 'exact page link' %} eivabe page gulo hyper link korle vejal sesh.
+
+akhon url er vitor a page number add korte chaile
+views.py theke parameter pass kore diye oita url tag er vitor define kore dilei hoy , pore oi url link diye value o receive kora jay.
+
+akhon oi data backend and front end a receive kore show korte chaile .GET use korte hoy sathe return render a akta dictionary pass kore dite hoy. tarpor & sign er por j j data url diye pass korbo oigula sob akta dictionary create korbe r pore oita key diye access kora jabe. link a / er por ? diye &key=value diye diye user data akta dictionary te save kora jabe.
+
+
+template inheritance ===>
+
+jokhon ake html code ba onno kono block of code bar bar use korte hoy tokhon oita akta template hishebe akbar banay sob jaygay inherit koara jay.
+
+amra j nav bar ta niyesilam oita just about page a dekhaitesilo but amra jodi sob page er jonno oita k fixed kore dite chai tahole 
+akta base html file banay oikhane common structure ta likhe rakhte hobe 
+
+pore sob jaygay jekhane jekhane dorkar oikhane {% extends 'base.html'%} tag diye inherit korbo r j j new code gulo likhbo oigulo {% block content %} {% end block content %} er vitor a likhbo.
+
+akhon base.html er block content  er vitor kisu likhle oita generally dekha jayna kothao . oita jodi dekhte chai tobe amder html file gulor vitor .super keyword diye dekhano jay. {{block.super}}
