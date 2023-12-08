@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{%block content%}
+<div class="container d-flex mt-5 p-5 bg-info ">
+    <div class="m-2 p-3 quotes">
+        <h1 class="bg-dark" id="welcome">Welcome To Our Resturant</h1>
+        <p class="font-monospace fw-semibold" id="introduction">Welcome to <b>Django</b> , where culinary excellence meets a warm and inviting ambiance. Indulge your senses in a symphony of flavors crafted from the finest, locally-sourced ingredients. Our chef-driven menu showcases a delightful fusion of traditional and contemporary dishes, promising a gastronomic journey that will tantalize your taste buds. Whether you're seeking a romantic dinner, a casual brunch, or a celebratory feast with friends, <b>Django</b> is your destination for memorable dining experiences. Join us and savor the artistry of our culinary creations in a setting that combines sophistication with genuine hospitality. Elevate your dining moments at <b>Django</b>, where every dish tells a story, and every visit is a celebration of exceptional cuisine.</p>
+    </div>
+    <div class="p-3 photo">
+        <img src="{% static 'images/home page.jpg' %}" alt="food image"/>
+    </div>
+</div>
+{% endblock %}

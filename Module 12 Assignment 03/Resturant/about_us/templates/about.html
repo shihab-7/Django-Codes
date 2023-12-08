@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{%block content%}
+
+<div class="container d-flex justify-content-center align-items-center mt-5 p-1">
+    <div class="about_us mx-auto">
+        <h1>About Us</h1>
+        <p class="lh-2">Welcome to <b>Django</b>, where culinary excellence meets warm hospitality. Established with a passion for creating memorable dining experiences, our restaurant is a haven for food enthusiasts seeking a blend of flavors, innovation, and tradition. Nestled in the heart of Dhaka, we take pride in sourcing the finest ingredients to craft dishes that tantalize your taste buds. Our diverse menu, inspired by both local and international cuisines, reflects our commitment to quality and creativity. At <b>Django</b>, we believe in more than just serving food; we aim to create a welcoming ambiance that invites you to savor each moment. Whether you're here for a casual meal with friends or a special celebration, our dedicated team is devoted to ensuring your dining experience is nothing short of exceptional. Join us on a culinary journey where passion meets plate, and every visit is an opportunity to indulge in the art of fine dining.</p>
+    </div>
+    <div class="photo_about">
+        <img src="{% static 'about page.avif'%}"alt="resturant image"/>
+    </div>
+</div>
+
+
+
+{%endblock%}

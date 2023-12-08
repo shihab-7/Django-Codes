@@ -1,0 +1,28 @@
+.about_us h1{
+    color: rgb(189, 255, 67);
+    text-shadow: 0 0 10px rgb(221, 255, 129);
+}
+
+.about_us{
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.about_us p{
+    font-size: 18px;
+    font-weight: 600;
+    color: cyan;
+    background-color: rgba(0, 0, 0, 0.623);
+    margin: 5px;
+    padding: 10px;
+}
+
+.photo_about{
+    padding-left: 10px;
+}
+.photo_about img{
+    border-radius: 10px;
+    box-shadow: 30px 20px #835434e3;
+    height: 600px;
+    width: 700px;
+}

@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    background: linear-gradient(45deg, rgb(130, 33, 182), rgb(227, 119, 69));
+}
+
+#introduction{
+    font-size: 18px;
+    color: bisque;
+    background-color: rgba(50, 48, 45, 0.537);
+    border-radius: 10px;
+    text-align: center;
+    text-shadow: 0 0 5px rgb(255, 157, 111);
+}
+
+#welcome{
+    text-shadow: 0 0 20px rgba(209, 27, 241, 0.792);
+    color: rgb(208, 23, 237);
+}
+.quotes h1{
+    border-radius: 8px;
+    text-align: center;
+}
+.photo img{
+    border-radius: 15px;
+    box-shadow: 30px 20px #4f4e4e6e;
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{%block content%}
+<div class="container mt-5">
+    <div class="row">
+    {%for i in meals%}
+        <div class="col-md-4 mb-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{{i.strCategoryThumb}}" class="card-img-top" alt="food image">
+                <div class="card-body">
+                <h5 class="card-title">{{i.strCategory}}</h5>
+                <p class="card-text">{{ i.strCategoryDescription|truncatewords:10 }}</p>
+                <a href="#" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+
+    {%endfor%}
+    </div>
+</div>
+
+{%endblock%}
