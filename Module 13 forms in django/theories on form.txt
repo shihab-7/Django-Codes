@@ -1,0 +1,65 @@
+django te form built in  2 type asa akta form api r akta model form .
+
+
+HTML FORM ====>>>
+
+akhon akta project banay oitate form er jonno app banay akta interface banay html code a form structure  er vitor method naam er akta attribute niye oitar value 'post' dile input neowa shuru hoy but error dibe 
+oi error ta handle korar jonno CSRF akta security system modify korte hoy django te . 
+
+CSRF ==> cross site request forgery , eita malecious kono kisu input dile handle korte help kore , eita {% csrf_token %} token diye declare kore.
+
+method a 'get' , 'post' 2 tai use kora jay but get use korle oita url a dekha jay tai password related kisute get use kora jay na post use korte hoy , r search ,input details eisob jaygay get use kora jay.
+
+akhon input deowa data backend a dekhte chaile request.post k print korte hobe views.py theke r html code a input tag gulor vitor name naam diye attribute set kore essamoto meaningful value name set kore dite hobe.
+
+backend a jaya variable er modhhe request.post.get('j essamoto meaningful value name set silo ') eita diye save korte pari ebong oigula variable abr dictionary banay abr frontend a pass kore dite pari context akare.
+
+akhon oita data gula jodi same page na niye onno page a dekhaite chai tahoile  form tag er vitor action attribute niye oikhane j page a data redirect korte chai oitar /file path/ dibo r views.py a eshe j page a dekhaite chai oitar return a dictionary ta add kore dibo.
+
+secure data input nite method a post rakhbo and get diye oisob data nibo jegular security concern nai. r name attribute diyei input tag theke data dhore backend a ana hoy.
+
+DJANGO FORM API ===>>>
+
+eikhane python a code korle oita automatic e convert hoye jabe form a
+
+project create kore app er vitor forms.py diye akta file khulte hobe oitatei form ta python er class diye banay nite hobe
+
+forms.py er vitor charfield emailfield eisob function er vitor label='web page a j nam dekhte chai'
+dile form er default name change hoye jabe
+
+r j html file diye ei form show korbo oitate form tag er vitor ei django er ei form ta pass korbo r er jonno alada submit button o banay nite hobe. {{form.as_p}} dile paragraph format a chole ashbe eirokom r o onek .tag asa ja use kora jay.
+r html form er moto method action shoho ja ja add kora lage korbo.
+
+
+bootstrap theke crispy form django er jonno install kore nile django form k ro decorate korte parbo.
+https://github.com/django-crispy-forms/crispy-bootstrap5#readme
+eita link follow kore setup kore nite hobe.
+
+tarpor html file a jaya {% load crispy_forms_tag %} load kore 
+forms er section tay {{forms | crispy}} dilei hobe.
+
+django form diye file input nite form tag a enctype attribute a multipart/form-data set kore dite hobe r forms.py file a file = forms.FileField() add kore nite hobe , multipart form data vinno vinno type er data input nite pare.
+
+input neowa file ta kono akta folder a save kore rakhte ===>>
+with open('folder path/' + file.name, 'wb+') as destination:
+	for chunck in file.chunck:
+		destination.write(chunck)
+eita korlei kaj sesh, eikhane wb+ diye j kono file input er shubidha kora hoy r chunck system ta diye khub boro file handle kora hoy jate website slow na hoy.
+
+same to same image upload field asa oita just image e input ney.
+
+django field attributes ===>>
+field() funcrion er vitor bivinno attributes pass kore onek rokom variation banano jay 
+label = 'name ' form a ki data input nibo oita set korar nirdesh dey
+initial = 'pre set value name' all time akta default value set kore rakhe jeta user cut kore nijer moto input dite pare
+help_text = 'Text' j nirdeshona user k dekhaite chai oita webpage a dekhabe
+required = False/True set kore dite hobe true dile must input ditei hobe. r false dile faka input o nibe  
+disabled= True kore dile form ta disable hoye jabe 
+
+widget = forms.Textarea(attrs = {'id':'text_area', }) ei widget django form er vitor akta dictionary use kore id , class , placeholder ja ja html a asa oigula add kora jay.
+widget field er vitor use kore vinno vinno field add kore modify kora jay .
+sobjaygay charfield use kore vitor a jaya just widget use kore sob kaj essa moto kora jay.
+
+
+
+

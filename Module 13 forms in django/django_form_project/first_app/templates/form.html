@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+
+<div class=" m-auto pt-5 " style="width: 50%; height: 500px;">
+
+  <h1>Movie Rating</h1>
+
+  <!-- post er jaygay get dile sob data link theke jana jabe-->
+  
+  <form method='post' action="/data/">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="username">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+    </div>
+    <div class="mt-2 p-2">
+      <select class="form-select" aria-label="Default select example" name="select">
+        <option selected>Open this select menu</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{%endblock%}
