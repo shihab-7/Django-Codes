@@ -1,0 +1,34 @@
+Django te built in akta database thake sqlite nam a.
+
+akta database a 4 type operation kora hoy create retrive update delete r eigulake aksathe CRUD bole.
+
+1) html form (done)
+2) django form api (done)
+3) model form (in progress)
+
+ORM == object relational mapper
+
+MVT == model view template
+
+django er database er kaj models.py a shuru hoy.
+
+models.py er vitor class banay database er format toiri kore command dite hobe python manage.py makemigrations app er migration folder a akta new python file create hoye jabe oi class er jonno . er por command dite hobe 
+python manage.py migrate eita dilei db.sqlite database file tate data table toiri hoye jabe.
+
+akhon pore jodi kono class a new kono field add kori tahoile db.sqlite a o update korte hone se jonno abr command python manage.py makemigrations dite hobe tarpor command python manage.py migrate abr dite hobe.
+r prottek new change a ei 2 ta command run korle sequentially notun notun python file create hoite thakbe.
+r prottekta field er vitor parameter add kore deowa valo jemon models.charfield(null = True) , models.charfield(default = "name") etc.
+
+akhon db.sqlite file ta dekhte sqlite viewer extension use kora jay. r data add delete korte db browser install kore nite hobe pc te.
+
+django er facilities gula nite super user hoye admin panel access korte hoy . super user create korte terminal a command dite hoy python manage.py createsuperuser. erpor user name password diye admin panel a log in korlei hobe. 
+
+erpor database er data admin panel a add korar jonno app er admin.py file a models k import kore oi models.py file a thaka class ta k register korlei oita admin panel a add hoye jabe. akhon admin panel thekei database a new field add edit delete sobkisui kora jabe.
+
+akhon models.py er data gulo frontend a show korar jonno views.py a models k import korbo
+
+frontend theke kono data delete korte chaile agey akta button banay nite hobe tarpor views.py a database er primary key niye data delete er akta function banay oitar akta url banay nite hobe urls.py a tarpor oita button er anchor tag a hyperlink kore dilei kaj sesh. akhon delete korar por jate delete link ta search bar a na show kore se jonno return redirect('page url') kore dilei j page er link dibo oitay chole jabe. 
+
+
+
+

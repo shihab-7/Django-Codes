@@ -1,0 +1,8 @@
+model form bananor somoy forms.py a meta class er under a fields section a '__all__'
+dile auto sob field add hoye jabe models.py er, r jodi spacefic kono field show korte chai tobe oita dictionary akare likhe dite hobe r exclude use kore j j field baad dite chai oita list banay deowa jay .
+
+erpor form api er migration command dilei form create hoye jabe . oita akhon admin panel a add korte admin.py jaya app theke models.py k import kore oikhaner class ta k admin.site.register(class name) dilei oita register hoye jabe admin panel a .
+
+akhon ei project er jonno python manage.py createsuperuser command diye user password set kore admin panel setup korlei hoye jabe.
+
+r baad baki sob decoration related kaj form api er motoi same to same.
