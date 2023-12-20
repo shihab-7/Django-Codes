@@ -1,0 +1,22 @@
+sobkisu admin panel theke control kora hoy . super user create kore niye oita diye login kore essa moto new user banano jay tarpor oisob user k essa moto permission diye role set kore deowa jay.
+
+sob create koara sesh a author er details dekhte chaile sqliteBrowser diye db file ta open korlei sob data dekha jay.
+
+user k frontend theke add korar jonno j form diye data collect korte hoy oita django te builtin deowai asa just forms.py a from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm theke model r form ta import kore niye views.py a form ta render korlei frontend a form ta show kore .
+
+just normal user create korar jonno forms.py er meta class er fields section a list banay just username email first_name last_name pathay dilei hoye jay r django password field auto add kore ney.
+
+form tag er vitor novalidate use korle html theke j error message show kore oita r korbe na . r jodi form er help_text gulo remove kore diye just form er label r input field gulo show korte chai tahole akta for loop frm in from er upor chalay frm.label_tag tarpor frm r frm.errors diye endfor korlei fresh form frontend a show korbe. pore frm.errors | striptags use korle django theke error message through korbe er por essa korle widget use kore essamot required=true/false set korle hoye jabe.
+
+
+sign up section er kaj sesh a log in section a save thaka data validate korte chaile django er built in library import korte hobe , from django.contrib.auth.forms import AuthenticationForm ei library te sob authentication related kaj korar jinish paowa jabe eita views.py a use kore authentication function gulo built kora hoy proyojon onushare module import kore . 
+
+django builtin vabei log in log out korara library banay dey , from django.contrib.auth import authenticate, login, logout .
+
+
+kono user kono site a log in thakle tar session id r csrf token dekhte chaile browser theke inspect -> appkication -> cookied -> http link. a gele information paowa jabe.
+
+password change korar jonno===>>
+
+database theke old password verify kore tarpor user k new password create korte dite chaile from django.contrib.auth.forms import AuthenticationForm , PasswordChangeForm , SetPasswordForm korle built in html form use kora jabe jeta directly database er sathe intigrated thakbe. Passwordchangeform use korle old password use kore new password change korte hobe user k r setpasswordform use korle old password sarai user new password set korte parbe . r sathe sathe from django.contrib.auth import update_session_auth_hash niye nite hobe jehetu database a password hash a convert kora thake se jonno .

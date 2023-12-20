@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{%block content%}
+
+{% if messages %}
+    {% for m in messages%}
+    <!-- conditional css -->
+      <small {%if m.tags%} class="{{m.tags}}" {%endif%}  >{{ m }}</small>
+    {%endfor%}
+    {%endif%}
+
+<h1 style="margin:auto; width:50%;" class="p-5">{{user.username}} Welcome to profile</h1>
+<a class="btn btn-primary p-2 m-2" href="{% url 'change_password' %}">Change Password with old password</a>
+<a class="btn btn-warning p-2 m-2" href="{% url 'change_password2' %}">Change Password without old password</a>
+
+<form method="post" class="p-5" style=" width : 50% ; margin : auto ; " novalidate>
+    {% csrf_token %}
+    <!--{{form | crispy}}-->
+    {% if form.non_field_errors%}
+    {% for er in form.non_field_errors %}
+     <p class=" bg-danger text-white p-3"> {{ er }} </p>
+    {% endfor %}
+    {% endif %}
+
+      {% for frm in form%}
+      {{ frm.label_tag }}
+      {{ frm }}
+      {{ frm.errors | striptags }}
+      {% endfor %}
+
+    <button class="btn btn-info m-2 p-2" >Update</button>
+    </form>
+{%endblock%}
