@@ -1,0 +1,8 @@
+login reqired decorator use korar jonno views.py er j function er jonno use korbo oitar upor decorator @login_requred diye settings.py a jaya LOGIN_URL = '/eikhane oi page er url dibo jeta login page ba j kono akta page a redirect kore dibe jeta login sarao access korte dibo/' r ei sob kisur agey from django.contrib.auth.decorators import login_required kore nite hobe. 
+
+slug field diye muloto j text amra post kori oi text k e link a convert koarar kaj kora hoy , slug space remove kore oi jayaga gulate hyphen boshay dey jate link hishebe kaj kore text ta . r akoi nam a same text thakle link er sathe unique id generate kore use korlei problem solved .
+
+slug bananor jonno boilt in slugfield() asa er vitor unique=true parameter use korle django nije nijei uniqueness handle korbe r database a akbar migrate korar por jodi kisu change kori sthe jesob data agetheke asa oigulate change na chai tobe null=true r blank=true dile kono vejal kore na . tarpor abr makemigrations r migrate dilei sesh kaj.
+
+akhon slug filed ta auto fill korte chaile admin.py section theke admin pannel a modification korte hobe , se jonno admin model class use kore pore oi class k admin.site.register() er vitor pass kore dite hobe ager banano model tar sathe.
+class bananor somoy class er vitor admin.modeladmin k inherrit korte hobe r oitar vitor prepopulated_field asa oitay akata dictionary pass kore dite hobe jetate key a thakbe 'slug' r value te thakbe akta tuple jar vitor pass kore dibo j nam ta amara slug a convert korbo oita mane category name ta . er por list_display te akta list banay nite hoy oi nam r slug ta diye jeta admmin panel a show korbe , erpor admin.site.register(models.model er nam , j admin panel modification class ta banaisi oitar nam )
