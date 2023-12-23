@@ -1,0 +1,10 @@
+Django Session ====>>
+
+session vs cookie ==>>
+session a user er data backend a database a save thake r cookie te user er data tar browser ei save thake . 
+
+session er data update korar kono function likhle must py manage.py makemigrations r py manage.py migrate command use korte hobe.
+
+
+akta website a jodi akta user kono akta particuler time porjonto log in theke kono activity show na korle automatic session ta expired hoye logout hoye jay tarjonno settings.py SESSION_COOKIE_AGE = joto seconds por expired hoye jabe toto seconds diye dibo. r jodi ei time er agei website a kono activity create hoy tobe oita views.py a handle korbo request.session.modified = True diye r extra functionality ja add korar oi views.py
+er session creation functiontar moddhei korbo.

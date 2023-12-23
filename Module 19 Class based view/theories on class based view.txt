@@ -1,0 +1,44 @@
+To know more about django class based view follow : https://ccbv.co.uk/
+
+class based view create korar jonno from django.views.generic import CreateView ebong from django.urls import reverse_lazy set kore nite hobe ,
+erpor j kaj er jonno age function banaitam oitar nam a akta class banay or vitor createview k inherrit korbo tarpor model = banano model models.py theke nibo othoba built in use korle oita rakhbo form_class = forms.py a j nam a form banano silo oita template_name = 'j url agey render kortam function a oita' success_url = reverse_lazy('kaj sesh a j url a redirect korbo oita') er validation check korar jonno built in function def form_valid(self , form): agey ja ja kortam valid form er info diye oigula kaj self.er por tarpor sesh a return super().form_valid(form) diye form er sob data return kore dibo 
+
+erpor urls.py a jaya path a views.class tar nam.as_view() diye dilei ok .
+
+r deleteview class use korar somoy akta extra delete.html file banay nite hoy jeta akta confirmation form return rende kore template_name er value hishebe . 
+
+class er jonno decorator use korte gele from django.utils.decorators import method_decorator  kore niye class er upor just @method_decorator(j decorator use korbo tar nam, name= 'dispatch') kore dilei hoye jabe but tar agey emni decorator setup kore nite hobe settings.py a .
+
+akhon login, logout er jonno o class banano thake eta from django.contrib.auth.views import LoginView, LogoutView add kore  nite hoy, 
+***** libray gulote deowa attributes gulo kaj na korle similar methods deowa thake oigulao use kora jay****
+erpor subidha moto attribute add kore functionality change kora jay
+
+django te media file hoilo oisob file jegula backend theke ashe , to know more about django media file follow https://djangocentral.com/managing-media-files-in-django/  
+akhon media folder banay oikahne media file rekhe access korte gele django by default kono system dey na tai static folder er moto setup kore nite settings.py a jaya sathe urls.py a o change korte hoy media folder er jonno . r globally media folder add korle eisob setup kora lage must be but app a korle ato kisu korar lage na.
+settings.py a paste : 
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+urls.py a :
+from django.conf import settings
+from django.conf.urls.static import static
+
+r urlpatterns er por 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT) eita paste kore dile media er jonno akta
+satatic system toiri hoye jay. 
+
+
+media file er image field niye kaj korte pip install pillow library install kore nite hobe. to know more visit : https://www.geeksforgeeks.org/imagefield-django-models/
+
+app er vitor folder banay nile vejal kom hoy globally initialize korara theke.
+same vabe essa korle j kono file use kora jay filefield use kore .
+
+class use korle function er moto kore if diye post method er request verify kora jay na, built in vabe banao post method use korte hoy.
+
+
+
