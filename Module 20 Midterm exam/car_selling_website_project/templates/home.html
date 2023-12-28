@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+
+<div class="justify-content-center align-items-center mt-2 p-2 d-flex">
+    <div class="col-6 mx-2 p-2"><h2 style="text-center; color: cyan;">Welcome to Django Cars  :</h2>
+        <h6 class=" bg-gradient m-5 p-3" style=" color: white; text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;">Lorem ipsum dolor sit amet, an mutat epicuri philosophia his, ne per dicta saperet. No sea liber offendit expetendis, quo tation assentior deseruisse ne. Vix ei mentitum conceptam deterruisset, ea melius copiosae percipitur eos, possim legendos his in. No pro minim diceret honestatis, ei eam facer facete.
+
+            Eum dolorum accusata sententiae an, senserit pericula postulant te vel. Cu pro quod vidisse, choro mentitum est an, cum at principes signiferumque. Id nec ferri veniam, doming eruditi in est, eripuit feugait constituto mel ea. Quem quod aeque eum eu, omnis interpretaris vim ad. Nibh gubergren ex vel.
+            
+            Ei saperet oporteat cum, eros dicam mollis ex pri. Modo admodum vix ut, ea debet neglegentur quo, ea erat omnes lobortis sit. Pri no homero neglegentur, aliquid deseruisse cu vix. Mea sapientem vituperata liberavisse ne, dicat ceteros nec ne, no legere omnium mel. Dico homero graeci vel an, intellegat definiebas id eum, no epicuri splendide consequat nam. Usu id graecis laboramus.
+            
+            Ad detracto menandri dissentiunt mei, nam magna singulis ne. Vim at debitis placerat definiebas, quidam vituperatoribus sea ea, duis dolor scribentur ad ius. Laoreet epicurei menandri ad quo, pri id pertinax evertitur efficiendi. Case bonorum ut eos, eu vix fabulas gloriatur deseruisse. Ad graece graeci facilisi mel, quas utroque petentium ne sit. Dicam affert evertitur est at, zril probatus an vel.</h6>
+    </div>
+    <div class="col-6 mx-2 ">
+        <img src="{% static 'homepageImg.jpg'%}" style="width:85%; border-radius:30px; box-shadow: 0px 1px 2px 0px rgba(0,255,255,0.7),
+        1px 2px 4px 0px rgba(0,255,255,0.7),
+        2px 4px 8px 0px rgba(0,255,255,0.7),
+        2px 4px 16px 0px rgba(0,255,255,0.7);" alt="blog_image"/>
+    </div>
+</div>
+<br/>
+
+<div class="container">
+    <h4 class="text-white px-2">Filter By Brands : </h4>
+    <div class=" col-12 d-flex flex-wrap">
+        {%for c in brand.all%}
+        <div class="col-2 p-1 mx-3" style="border-radius: 7px;box-shadow:0px 1px 2px 0px rgba(0,255,255,0.7),
+        1px 2px 4px 0px rgba(0,255,255,0.7),
+        2px 4px 8px 0px rgba(0,255,255,0.7),
+        2px 4px 16px 0px rgba(0,255,255,0.7);">
+                <nav class="navbar bg-black">
+                    <div class="container justify-content-center align-items-center">
+                      <a class="navbar-brand" href="{% url 'brand_filter' c.slug %}">
+                        <h3 style=" color: green; text-shadow: 0px 0px yellow;">{{c.name}}</h3>
+                        <img src="{{c.logo.url}}" alt="log iamge" style="width:40px; height:35px;"/>
+                      </a>
+                    </div>
+                  </nav>
+            </div>
+            {%endfor%} 
+        </div>
+        <br/>
+        <div class="col-2 m-3">
+            <nav class="navbar bg-warning"style="border-radius: 7px;">
+                <div class="px-5">
+                    <p class="mt-3 "><b>{{ data | length }} results found </b></p>
+                </div>
+              </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-12 d-flex flex-wrap mx-2">
+
+        {% for c in data%}
+                    <div class="col-sm-3">
+                        <div class="card mx-2 mt-2">
+                            <div class="card-body">
+                                <img src="{{c.image.url}}" class="card-img-top" alt="..." style="width:280px; height:170px;">
+                                <h5>Name : {{c.name}}</h5>
+                                <h6>Brand : {{c.brand.name}}</h6>
+                                <h6>Quantity : {{c.quantity}}</h6>
+                                <h6>Price : {{c.price}} Taka</h6>
+                                <a class="btn btn-primary" href="{% url 'car_details' c.id %}">Details</a>
+                                {%if user.is_authenticated%}
+                                    {%if c.quantity > 0%}
+                                            <a class="btn btn-success" href="{% url 'buynow' pk=c.id %}" >Buy Now</a>
+                                    {%else%}
+                                            <button class="btn btn-success" type="submit" disabled >(not available)</button>
+                                    {%endif%}
+                                {%endif%}
+                            </div>
+                        </div>
+                    </div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

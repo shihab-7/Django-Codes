@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load static%}
+<div class="container p-2">
+  
+  {%if messages%}
+      {% for m in messages%}
+      <h4 class="text-{{m.tags}} bg-white text-center p-1" style="border-radius:7px;">{{m}}</h4>
+      {%endfor%}
+  {%endif%}
+</div>
+
+
+<div class="container d-flex flex-wrap mt-5 p-5">
+
+  <div class="col-8"></div>
+    <h5 class=" text-center p-2" style="background-color: white; margin:auto; width:50%; border-radius:8px;"> welcome to your profile <b style="color:blue;">{{user.first_name}}</b></h5>
+  <div class="col-4">
+    <a class="btn btn-outline-primary" href="{%url 'edit_profile'%}">Edit Profile</a>
+  </div>
+</div>
+<hr style="height:5px; background-color:white;"/>
+<div class="col-10">
+  <h3 class="text-warning mx-5">Purchase History :</h3>
+  <div class="container">
+    <div class="col-12 d-flex flex-wrap mx-2">
+
+      {%if bought%}
+      {% for element in bought.all %}
+                  <div class="col-sm-3">
+                      <div class="card mx-2 mt-2">
+                          <div class="card-body">
+                              <img src="{{element.car.image.url}}" class="card-img-top" alt="..." style="width:280px; height:170px;">
+                              <h5>Name : {{element.car.name}}</h5>
+                              <h6>Brand : {{element.car.brand.name}}</h6>
+                              <h6>Purchased Quantity : {{element.car_quantity}}</h6>
+                              <h6>Total Price : {{element.total_price}} Taka</h6>
+                              <a class="btn btn-primary" href="{% url 'car_details' element.car.id %}">Details</a>
+                              
+                          </div>
+                      </div>
+                  </div>
+      {%endfor%}
+  {%else%}
+                <h1 class="text-white">Nothing Here</h1>
+  {%endif%}
+    </div>
+</div>
+</div>
+
+{%endblock%}
