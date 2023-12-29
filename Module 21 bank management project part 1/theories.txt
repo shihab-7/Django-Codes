@@ -1,0 +1,16 @@
+amra j models othoba form a kono data list ba tuple akare patahi backend theke oigula oi file a na rekhe oi app er moddhe akta constants.py name a file a rekhe j kono jaygay import kore kaj korte pari (best practice).
+
+
+tailwind k html a add korar jonno header a <link> tag a href a https://unpkg.com/browse/tailwindcss@2.0.1/dist/ link a jaya tailwind.min.css a dhuke view raw te click kore j link ta pabo oita dibo 
+sathe rel="stylesheet" diye dibo.
+
+
+frontend a j amra form diye fields gulo pathai oigula forms.py er vitor e by default na niye edit kore frontend a pass kore dite pari. er jonno __init__ diye inherrit kore supper() diye sob field niye fields er moddhe loop chalay new name set kore dibo. 
+
+amra essa korle just akta html file {%block content%}{%endblock%} er vitor inherrit na kore {%include 'html file er nam.html'%} diye add kore nite pari j kono html code er vitor.
+
+Resources=====>>>>>>
+
+Blog Link : https://phitron.gitbook.io/django/module_13
+Github link : https://github.com/abdullahallnaim/Django-Courses/tree/main/mamar_bank_Part1_2_Code/mamar_bank
+Feedback link : https://forms.gle/xA4YgG5iJpAnAbnN6
