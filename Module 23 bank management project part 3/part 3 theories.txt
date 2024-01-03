@@ -21,4 +21,27 @@ akhon email pathanor kajta views.py er modhhe korte hobe sei jonno from django.c
 
 r from django.template.loader import render_to_string eita akta html file k render kore string a convert kore ney jar maddhome amra email ta k html diye design kore nite parbo.
 
- 
+
+akhon project ta k live korar jonno .env file ta jate github a push na hoy sei jonno globally .gitignore akta file khule or vitor project er nam /.env diye akta new repository te push kore nite hobe (live korte chaile akta repository te aktai project thakete hobe).
+erpor 
+render.com a jaya github diye signin kore akta account khule site register korbo but tar agei requirements.txt nam a akta file banay nite hobe
+jetate amra ki ki python packages use korsi project korte oigula sob thakbe r eita bananor jonno terminal a pip freeze > requirements.txt dilei akta txt file create hoye jabe nij nij version soho but site deploy korar jonno version use na kora better karon bivinno error dey tai cmd te pip freeze | py -c "for p in __import__('sys').stdin: print(p.split('=')[0])" ei command ta diye version sara packages gular nam copy kore niye oi txt file tay paste kore dilei hobe .
+
+tarpor sob sesh a last a jay amra .env te enviornment variable gulo use korsi oigula nam dite hobe settings.py er r value gula dibo .env er vitorer.
+
+localhost diye database use kora jay na render.com a tai oder moto postgresql setup kore nite hoy se jonno agey database setup kore niye oita settings.py a modify kore tarpor github a push kore deploy korte hoy.
+oder deowa db install korte pip install dj-database-url psycopg2-binary kore niye
+settings.py a import dj_database_url kore niye 
+db section a 
+DATABASES = {
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='render.com er site theke banao postgresql er link ta eikhane dibo',
+        
+    )
+}
+
+oder site theke akta postgresql db bannay niye or link ta nibo 
+settings.py a jaya allowed host = ["*"] kore dile r kono error dibe na
+csrf token er jonno akta error dey oita solve korte settings.py a jaya CSRF_TRUSTED_ORIGINS = ['https://mamar-bank.onrender.com','https://*.127.0.0.1']
+add korlei hoy.
