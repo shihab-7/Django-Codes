@@ -1,0 +1,10 @@
+django te views.py theke pathano kono form k logged in user sara kew jate access
+korte na pare sei protection deowar jonno class based view bananor somoy 
+from django.contrib.auth.mixins import LoginRequredMixin kore eita class
+er moddhe inherrit kore nibo j class based view use korbo tar sathe.
+
+
+form er modhhe model related logical kaj gulo na kore views er moddhe kora better.
+
+admin panel k modify korara jonno model admin k modify korte hoy . j model k site a register korbo oita @admin.register(my model ) inherrit kore niye 
+akta class banay nam diye oitar vitor admin.modeladmin k inherrit korte hoy r er vitor ja korar kora jay. @admin.register method decorator diye modeladmin a catch kore rakha hoy.
