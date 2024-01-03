@@ -1,0 +1,24 @@
+django er default database sqlite use kora sarao postgresql database use kora jay . 
+to know more : https://www.postgresqltutorial.com/postgresql-getting-started/what-is-postgresql/
+
+postgresql use korte system a database er exe file ta install kore nite hobe.
+eta akta relational database management system . to know more visit w3school.com
+
+psql shell open hoile bujha jabe j setup complete r db open korte 
+pgadmin4 open korte hoy.
+
+django er default db remove kore postgresql setup korte visit : https://hevodata.com/learn/django-postgresql/  
+
+
+database settings.py a setup korar por github a push korle privacy leak hoye jay database er tai .env use kore encrypt kore deowa hoy full sob kisu setup korar jonno visit : https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8
+
+database connect korar por sqlite er moto makemigration migrate createsuperuser use kore admin panel er sob kisu setup kore nite hobe.
+
+j kono transaction er update user k mail er maddhome janaite hoile email setup kore nite hoy . se jonno gmail app password theke akta password banay niye j mail theke user k mail korbo oi mail soho .env er system a encrypt kore settings.py a setup korbo 
+er jonno visit : https://www.geeksforgeeks.org/setup-sending-email-in-django-project/
+
+akhon email pathanor kajta views.py er modhhe korte hobe sei jonno from django.core.mail import EmailMultiAlternatives eita akta email er subject from to eisob handle kore 
+
+r from django.template.loader import render_to_string eita akta html file k render kore string a convert kore ney jar maddhome amra email ta k html diye design kore nite parbo.
+
+ 
