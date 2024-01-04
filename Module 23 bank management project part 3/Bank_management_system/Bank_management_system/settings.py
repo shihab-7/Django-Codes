@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'Bank_management_system.wsgi.application'
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'mamar_bank',
 #        'USER': 'postgres',
-#        'PASSWORD': '12345',
+#        'PASSWORD': '', # jeta database bananor somoy use korsi
 #        'HOST': 'localhost',
 #        'PORT': '5432',
 #    }
