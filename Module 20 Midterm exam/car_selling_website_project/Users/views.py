@@ -1,6 +1,3 @@
-from typing import Any
-from django.db.models.base import Model as Model
-from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from django.views.generic import CreateView, UpdateView
