@@ -18,5 +18,8 @@ to know more about django rest framework visit : https://www.django-rest-framewo
 
 filtering type er data er jonno most of the time many to many relationship buildup kora better.
 
+admin.py er vitor class diye modeladmin k modify korar somoy model er vitor onno kono model er sathe relationship build kora thakle oi model tar element access korte def element name(self,obj): return obj.relation hold kora variable.j element chaisilam oita hold kora variable dilei oita access kora jabe.
+
+
 
 
