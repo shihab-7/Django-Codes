@@ -1,0 +1,22 @@
+api ==>> application programming interface . eita server side r application side er moddhe connection create kore.
+
+REST API ==>> Representational State Transfer Application Programming Interface .
+
+consist of ===>>
+i) end point ---> collections of the links
+ii) method ---> 4 type >> 1. POST (create), 2.GET(read), 3.PUT(update), 4.DELETE(delete)  works as CRUD operation.
+iii) header ---> status code (web page a bivinno error dey jemon 404, 402 eisob)
+iv) data 
+
+sob data api te json format a deowa thake ===>
+
+complex datatype  --(serialization)---> python native datatype --(render into json)---> json data
+
+json data --(parse data)---> python native datatype --(de-serialization)---> complex datatype
+
+to know more about django rest framework visit : https://www.django-rest-framework.org/
+
+filtering type er data er jonno most of the time many to many relationship buildup kora better.
+
+
+
