@@ -1,0 +1,46 @@
+put and patch ==> 
+PUT >>
+A complete update method that replaces an existing record with a new one. PUT modifies a record's information and creates a new record if one is not available.
+
+PATCH >>
+A partial update method that changes the values of one or more fields on a record. PATCH is used to apply partial updates to a resource, meaning that only the fields that need to be changed are sent in the request body.
+
+django rest framework setup for creating rest api ==>>
+
+link to setup : https://www.django-rest-framework.org/#installation
+
+serializer in django : Serializers are used to convert complex data types, such as Django model instances, into Python data types that can be easily rendered into JSON, XML, or other content types.
+
+akhon j j app er jonno api banate chai oigular vitor serializers.py file banay nia or vitor modelserializer import kore niye model er moto sob setup kore neowa jabe.
+
+N.B : agey jekhane frontend a data pathanor jonno form pathano hoito akhon api bananor jonno serializers bananor lage same as form . forms.py a j kaj kortam akhon serializers.py a same kaj e korle model ta json a convert hoye jabe django rest framework er maddhome. ei api ta akhon j kono kisutei use kora jabe .
+
+akhon ei vabe sob app er jonno form er poriborte serializer banano sesh a oigular jonno class based view er maddhome views.py a setup kore niye urls.py diye web format a show kore kaj kora jay.
+
+class based view diye kaj kora geleo viewsets and router diye aksathe easily sob kaj e handle kora jay kono somossa sarai .
+
+urls.py a akhon url bananor jonno from rest_framework.routers import DefaultRouter add kore niye router = DefaultRouter() k dhore
+router.register('contact_us', ContactUsView) amader view ta k router a register kore niye urlpatterns er path a include kore nite hobe router.urls k er por project er urls.py a app k include kore nilei hobe.
+
+akhon runserver diye direct api er vitor dhuke amra CRUD operation easily korte parbo . 
+akhon rest framework page er vitor link a json objects gular id diye diye delete update korte parbo.
+
+
+api bananor por user othoba relation build up kora field gula auto generated primary key gulo dekhay
+
+
+    {
+        "id": 1,
+        "image": "http://127.0.0.1:8000/media/patient/images/dogeememe.jpg",
+        "mobile_no": "017*********",
+        "user": 2 (ei jaygay name dekhano jay)
+    }
+
+ oi jaygay oi specefic user er name ba field tar vitorer elements gulo dekhte serializer a ei link : https://www.django-rest-framework.org/api-guide/relations/ er StringRelatedField er moto setup korle key er jaygay data show korbe . onek data thakle many=True r akta thakle False kore dite hobe user/ other field = serializers.StringRelatedField(er vitor). ei change gulo serializers.py file er class er vitor korte hoy.
+
+browser url a value diye query pass korte chaile / er por ? er por query data eivabe pass kore dite hoy
+
+
+
+
+
