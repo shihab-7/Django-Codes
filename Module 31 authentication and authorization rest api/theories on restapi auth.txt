@@ -1,0 +1,104 @@
+authentication er jonno just user account korle akta confirmation mail pabe r oita confirm korle account auto create hoye jabe .
+ei system er jonno kono querry jehetu kora lagbe na tai apiview diyei just 
+frontend a show korlei hoye jay. 
+r kono operational kaj na thakay urls.py a router setup o kora lagtese na.
+
+user creation er kaj ta rest api te same to same CBV er model r form pass kore data niye kaj korar moto. just eikhane form er jaygay serializer pass kore dite hoy views er maddhome. pore oita url a registration kore nilei hoy. r APIView k inherrit korate direct rest frame work er web page oi url diye form akare dekha jay format ta k.
+
+akhon akjon user jokhon e account khulte jabe tokhon tar email a akta verification mail chole jabe oita click korlei tar account ta verify hoye database a register hoye jabe . 
+er jonno email send er setup ta project er settings.py er vitor kore niye
+j serializers.py a registration er jonno serializer banano hoisilo oikhane 
+account.set_password(password) korar por account.is_activate = False kore dibo tahoile Database a user ta unactive hishebe thakbe.
+
+erpor validation er jonno akta token mail kore pathano hobe user k akta link er maddhome oi link click korlei user er account.is_active ta true hoye jabe and user er account ta o successfully active hoye jabe database a.
+
+eta korte oi same app er views.py er registration section a kisu kaj korte hobe ===>>
+to first a prottek user er jonno akta kore unique token banay nite hobe 
+er jonno 
+from django.contrib.auth.tokens import default_token_generator kore niye
+serializer.is_valid check er por 
+serializer.save() er por token = default_token_generator.make_token(user) token banay nite hobe.
+erpor user k mail a j url pathano hobe oita create korar jonno
+
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes kore niye 
+
+uid = urlsafe_base64_encode(force_bytes(user.pk)) kore nibo . eikhane force_bytes encode process ta k easy kore dey .
+
+erpor akta confirm link confirm_link = f"http://127.0.0.1:8000/patient/active/{uid}/{token}" banay porer step a email sending er setup kore nilei kaj sesh.
+
+akhon link ta click korle user er account ta active kore dite akta custom function use korbo ===>
+
+def activate(request, uid64, token):
+    try:
+        uid = urlsafe_base64_decode(uid64).decode()
+        user = User._default_manager.get(pk=uid)
+    except(User.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        return redirect('register')
+    else:
+        return redirect('register')
+er por urls.py a jaya active function ta path set kore dilei hobe sathe url a <uid64> r <token> pass kore dite hobe.
+
+akhon user k log in koranor jonno form er motoi serializers.py a class banay nite hoy pore oita views.py a
+
+class UserLoginAPIView(APIView):
+    def post(self,request):
+        serializer = UserLoginSerializer(data = self.request.data)
+        if serializer.is_valid():
+            username = serializer.validated_data['username']
+            password = serializer.validated_data['password']
+
+            user = authenticate(username= username, password=password)
+
+            if user:
+                token = Token.objects.get_or_create(user=user)
+                return Response({'token': token, 'user_id': user.id})
+            else :
+                return Response({'error': 'Invalid Credential' })
+        return Response(serializer.errors)
+
+kore urls.py a path diye link banay nibo .
+akhon ei token niye login korar system tar jonno settings.py a installed app section a 'rest_framework.authtoken' add kore diye py manage.py migrate command dilei akta token model create hoy jabe r error dibe na.
+
+
+token diye user login handle korar jonno follow link : https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication
+
+always post request niye login related secure kaj gulo korte hoy r get request diye logout or query releted kaj kora better.
+
+making rest api secure jate kisu kisu api authenticated user sara kew dekhte na pare plus CRUD operation o na korte pare ===>>
+
+er jonno project er settings.py a 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+add kore nite hobe. eita permission_classes er setup jeta akhon views.py file er j kono class based view er vitor permission_classes = [IsAuthenticated] diye dile logged in user sara r kew oi api er data dekhte parbe na . onek ta login_required decorator er moto.
+to full setup guide link : https://www.django-rest-framework.org/api-guide/permissions/#setting-the-permission-policy
+
+akhhon jodi emon chai j authenticated user CRUD operation korte parbe but unauthenticated user just view korte parbe tobe settings.py a kono change na kore direct from rest_framework.permissions import IsAuthenticatedOrReadOnly kore niye 
+class based view er vitor permission_classes = [IsAuthenticatedOrReadOnly] kore dilei kaj sesh.
+
+
+N.B: user er kono action jemon login logout releted kisur jonno views.py theke mail sending er setup korte hoy r pore pending type jeta pore admin update kore dile jate user mail paay ei type er mail sending er setup admin.py er admin model modify korar j custom function ba class thake oitar vitor kora hoy.
+
+akhon kono kisur akta boro list thakle oitake koyekta page a vag kore page number diye akta akta kore page dekha k pagination bole , pagination direct rest api diye handle korar jonno visit : https://www.django-rest-framework.org/api-guide/pagination/
+
+amra ei project a pagenumber paination use korsi to setup visit: https://www.django-rest-framework.org/api-guide/pagination/#pagenumberpagination
+
+jekono type er filtering korte visit : https://www.django-rest-framework.org/api-guide/filtering/#filtering 
+
+
+
+
+ 
+
+
+
+
